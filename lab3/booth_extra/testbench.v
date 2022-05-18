@@ -16,6 +16,8 @@ reg        wrong        ;
 reg [31:0] result [8:0] ;
 
 initial begin
+	$dumpfile("booth2.vcd");
+	$dumpvars(0,testbench);
     clk = 0;
     rst_n = 0;
     start = 0;
