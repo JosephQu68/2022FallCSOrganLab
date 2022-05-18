@@ -51,25 +51,25 @@ always @(posedge clk or negedge rst_n) begin
 		times <= 0;
 	end
 	if(busy_flag) begin
-		if(times >= 17) begin
+		if(times >= 16) begin
 			z <= z_temp;
 			busy_flag <= 0;
 		end
-		else if(times == 16) begin
-			if(y_reg[15] == 0 & y_reg[16] == 0) begin
-				z_temp <= z_temp;
-			end
-			else if(y_reg[15] == 0 & y_reg[16] == 1) begin
-				z_temp <= (z_temp + x_reg);
-			end
-			else if(y_reg[15] == 1 & y_reg[16] == 0) begin
-				z_temp <= (z_temp + x_reg_neg);
-			end
-			else if(y_reg[15] == 1 & y_reg[16] == 1) begin
-				z_temp <= z_temp;
-			end
-			else	;
-		end
+		// else if(times == 15) begin
+		// 	if(y_reg[15] == 0 & y_reg[16] == 0) begin
+		// 		z_temp <= z_temp;
+		// 	end
+		// 	else if(y_reg[15] == 0 & y_reg[16] == 1) begin
+		// 		z_temp <= (z_temp + x_reg);
+		// 	end
+		// 	else if(y_reg[15] == 1 & y_reg[16] == 0) begin
+		// 		z_temp <= (z_temp + x_reg_neg);
+		// 	end
+		// 	else if(y_reg[15] == 1 & y_reg[16] == 1) begin
+		// 		z_temp <= z_temp;
+		// 	end
+		// 	else	;
+		// end
 		else if(y_reg[15] == 0 & y_reg[16] == 0) begin
 			z_temp <= {z_temp[31],z_temp[31:1]} ;
 		end
